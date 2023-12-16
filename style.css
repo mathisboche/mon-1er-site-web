@@ -26,13 +26,65 @@ nav a {
     margin: 0 10px;
 }
 
-/* Styles pour la section d'accueil */
+
 #home {
-    padding: 2rem;
-    background: #008080;
-    color: #FFFFFF;
+    background: linear-gradient(to right, #006d77, #83c5be); /* Un gradient subtil */
+    backdrop-filter: blur(10px);
+    animation: gradientShift 10s ease infinite;
+    background-size: 200% 200%;
+    color: white;
+    height: 100vh; /* Plein écran */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Alignement vertical des éléments enfants */
+    align-items: center;
+    justify-content: center;
 }
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Styles pour la bannière */
+#home h1 {
+    font-size: 4rem; /* Taille de la police */
+    font-weight: bold; /* Graisse de la police */
+    color: #ffffff;
+    text-shadow: 6px 2px 16px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0.5rem; /* Espacement en dessous du titre */
+    text-transform: uppercase; /* Optionnel: Mettre le texte en majuscules */
+    margin: 0;
+    padding: 0;
+    letter-spacing: 2px; /* Espacement entre les lettres */
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Styles pour le sous-titre */
+#home p {
+    font-size: 1.5rem; /* Taille de la police appropriée */
+    color: #ffffff; /* Une couleur accrocheuse */
+    text-shadow: 4px 2px 10px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+    font-weight: 300;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold; /* Rendre le texte en gras pour attirer l'attention */
+}
+
 
 /* Styles pour les sections générales */
 section {

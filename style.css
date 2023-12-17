@@ -12,12 +12,59 @@ body {
     background-color: #FFFFFF;
 }
 
-/* Styles pour la navigation */
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.8); /* Transparence */
+    backdrop-filter: blur(10px); /* Effet de flou */
+    z-index: 1000; /* S'assurer que la navbar reste au-dessus des autres éléments */
+}
+
 nav {
-    background: #008080;
-    color: #FFFFFF;
-    padding: 1rem;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav .logo img {
+    height: 50px; /* Ajustez la taille de votre logo si nécessaire */
+}
+
+nav .hamburger {
+    display: none; /* modifiez cette propriété comme nécessaire */
+    /* autres styles... */
+}
+
+
+nav .menu {
+    list-style: none;
+    display: flex;
+}
+
+nav .menu li {
+    margin-left: 20px;
+}
+
+nav .menu li a {
+    text-decoration: none;
+    color: #000;
+    /* Autres styles de lien si nécessaire */
+}
+
+.menu.show {
+    display: block; /* ou un autre style de votre choix */
+}
+
+/* Styles pour mobile */
+@media (max-width: 768px) {
+    nav .menu {
+        display: none;
+    }
+
+    nav .hamburger {
+        display: block;
+    }
 }
 
 nav a {
@@ -25,6 +72,83 @@ nav a {
     text-decoration: none;
     margin: 0 10px;
 }
+
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 25px; /* Ajuster selon la taille souhaitée */
+    z-index: 1002; /* Plus élevé que celui du menu en plein écran */
+}
+
+.hamburger span {
+    display: block;
+    width: 30px; /* Ajuster selon la largeur souhaitée */
+    height: 3px; /* Ajuster selon l'épaisseur souhaitée */
+    background-color: #333; /* Couleur des barres */
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 8px; /* Ajustez selon vos besoins */
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -8px; /* Ajustez selon vos besoins */
+}
+
+.menu-fullscreen {
+    position: fixed;
+    top: 73px;
+    right: -100%; /* Commencer hors de l'écran à droite */
+    width: 100%;
+    height: calc(100% - 73px);
+    background: rgba(255, 255, 255, 0.8); /* Fond semi-transparent comme le header */
+    backdrop-filter: blur(10px); /* Effet de flou appliqué */
+    z-index: 1001; /* Au-dessus de tous les autres éléments */
+    transition: right 0.5s ease; /* Ajuster la durée de la transition si nécessaire */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-fullscreen ul {
+    list-style: none;
+}
+
+.menu-fullscreen ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.menu-fullscreen ul li a i {
+    font-size: 32px;
+    margin-right: 16px; /* Espace entre l'icône et le texte */
+}
+
+.menu-fullscreen.show {
+    right: 0; /* Déplacer le menu vers la gauche pour l'afficher */
+}
+
+
 
 
 #home {

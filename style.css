@@ -149,9 +149,9 @@ nav a {
 }
 
 
-
-
 #home {
+    margin-top: -73px; /* Ajustez cette valeur en fonction de la hauteur de votre en-tête */
+    padding-top: 73px; /* Ajoutez un padding pour éviter que le contenu ne soit caché sous l'en-tête */
     background: linear-gradient(to right, #006d77, #83c5be); /* Un gradient subtil */
     backdrop-filter: blur(10px);
     animation: gradientShift 10s ease infinite;

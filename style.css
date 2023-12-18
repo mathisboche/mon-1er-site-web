@@ -238,11 +238,15 @@ h2 {
     margin-bottom: 1rem;
 }
 
-.card-container {
+.carousel-container {
+    overflow-x: auto; /* Permet le défilement horizontal */
+    white-space: nowrap; /* Assure que les cartes se placent horizontalement */
+    padding: 20px 0; /* Espacement autour du carrousel */
+}
+
+.carousel {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 20px;
+    align-items: center;
 }
 
 .card {
@@ -250,6 +254,8 @@ h2 {
     height: 300px;
     perspective: 1000px;
     margin-bottom: 20px; /* Espace entre les cartes en mode responsive */
+    margin-right: 20px; /* Espace entre les cartes */
+    display: inline-block;
     border-radius: 15px; /* Bords arrondis pour la carte */
     overflow: hidden; /* Empêche le contenu de dépasser */
 }
@@ -260,10 +266,7 @@ h2 {
     transform-style: preserve-3d;
     transition: transform 0.5s;
     border-radius: 15px;
-}
-
-.card:hover .card-inner {
-    transform: rotateY(180deg);
+    transition: transform 0.5s;
 }
 
 .card-front, .card-back {
@@ -324,17 +327,15 @@ h2 {
     }
 
     .card {
-        width: 80%; /* Plus large sur les écrans mobiles */
+        width: 80%;
         
     }
 
     .card-front img, .flip-button {
-        width: 80%; /* Assurez-vous que l'image et le bouton ne dépassent pas */
+        width: 80%;
         margin-bottom: 5px;
     }
 }
-
-/* Ajoutez des styles supplémentaires selon vos besoins */
 
 
 /* Styles pour les articles du portfolio */

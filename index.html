@@ -46,46 +46,48 @@
     <section id="about">
         <h2>À propos de moi</h2>
         <p>Une introduction à mes antécédents, ce que je fais et mes intérêts.</p>
-        <div class="card-container">
-            <!-- Carte pour le Tennis -->
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="tennis, card.png" alt="Tennis Icon">
-                        <button class="flip-button">Découvrir</button>
-                    </div>
-                    <div class="card-back">
-                        <p>Passionné de tennis depuis mon enfance, jouant pour le loisir.</p>
-                    </div>
-                </div>
-            </div>
-        
-            <!-- Carte pour les Échecs -->
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="chess, card.png" alt="Chess Icon">
-                        <button class="flip-button">Découvrir</button>
-                    </div>
-                    <div class="card-back">
-                        <p>Compétiteur d'échecs, toujours en quête de stratégie.</p>
+        <div class="carousel-container">
+            <div class="carousel"></div>
+                <!-- Carte pour le Tennis -->
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="tennis, card.png" alt="Tennis Icon">
+                            <button class="flip-button">Découvrir</button>
+                        </div>
+                        <div class="card-back">
+                            <p>Passionné de tennis depuis mon enfance, jouant pour le loisir.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        
-            <!-- Carte pour l'IA -->
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="AI, card.png" alt="AI Icon">
-                        <button class="flip-button">Découvrir</button>
-                    </div>
-                    <div class="card-back">
-                        <p>Fasciné par l'intelligence artificielle et ses possibilités infinies.</p>
+            
+                <!-- Carte pour les Échecs -->
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="chess, card.png" alt="Chess Icon">
+                            <button class="flip-button">Découvrir</button>
+                        </div>
+                        <div class="card-back">
+                            <p>Compétiteur d'échecs, toujours en quête de stratégie.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>        
+            
+                <!-- Carte pour l'IA -->
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="AI, card.png" alt="AI Icon">
+                            <button class="flip-button">Découvrir</button>
+                        </div>
+                        <div class="card-back">
+                            <p>Fasciné par l'intelligence artificielle et ses possibilités infinies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
     </section>
     
     <!-- Portfolio -->
@@ -135,47 +137,6 @@
     <footer>
         <p>© 2023 Mathis Boche. Tous droits réservés.</p>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var hamburger = document.querySelector('.hamburger');
-            var menu = document.querySelector('.menu-fullscreen');
-            var menuLinks = document.querySelectorAll('.menu-fullscreen a');
-
-            hamburger.addEventListener('click', function() {
-                this.classList.toggle('active');
-                menu.classList.toggle('show');
-            });
-
-            menuLinks.forEach(function(link) {
-                link.addEventListener('click', function() {
-                    menu.classList.remove('show');
-                    hamburger.classList.remove('active');
-                });
-            });
-        });
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                var targetId = this.getAttribute('href');
-                var targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 73, // Ajustez pour la hauteur du header
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        document.querySelectorAll('.flip-button').forEach(button => {
-            button.addEventListener('click', function() {
-                var cardInner = this.closest('.card-inner');
-                if (cardInner) {
-            cardInner.style.transform = 'rotateY(180deg)';
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

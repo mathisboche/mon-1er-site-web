@@ -267,6 +267,7 @@ h2 {
     transition: transform 0.5s;
     border-radius: 15px;
     transition: transform 0.5s;
+    white-space: normal;
 }
 
 .card-front, .card-back {
@@ -295,13 +296,26 @@ h2 {
 
 .card-back {
     background: #e4e4e4;
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: #303030;
     transform: rotateY(180deg);
-    text-align: center;
-    padding: 15px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding: 15px; /* Ajustez selon vos besoins pour créer de l'espace autour du texte */
+    text-align: center; /* Centre le texte si vous le souhaitez */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-back p {
+    font-size: 18px; /* Augmente la taille de la police, ajustez selon vos besoins */
+    font-weight: bold; /* Rend le texte en gras */
+    color: #333; /* Couleur du texte, ajustez si nécessaire */
+    margin: 0; /* Ajustez selon vos besoins */
+    padding: 10px; /* Ajoutez du padding si nécessaire pour l'espacement */
+    text-align: center; /* Gardez le texte centré */
+    word-wrap: break-word; /* Assurez-vous que le texte ne déborde pas */
 }
 
 .flip-button {

@@ -238,6 +238,105 @@ h2 {
     margin-bottom: 1rem;
 }
 
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.card {
+    width: 200px;
+    height: 300px;
+    perspective: 1000px;
+    margin-bottom: 20px; /* Espace entre les cartes en mode responsive */
+    border-radius: 15px; /* Bords arrondis pour la carte */
+    overflow: hidden; /* Empêche le contenu de dépasser */
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    border-radius: 15px;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
+.card-front {
+    background: #f0f0f0; /* Fond clair pour le recto */
+}
+
+.card-front img {
+    width: 90%; /* Ajustez la taille de l'image pour qu'elle s'adapte */
+    margin-bottom: 10px;
+    border-radius: 10px; /* Bords arrondis pour l'image */
+}
+
+.card-back {
+    background: #e4e4e4;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+    text-align: center;
+    padding: 15px;
+}
+
+.flip-button {
+    background-color: #FF7F50; /* Couleur du bouton */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Styles pour les appareils mobiles */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%; /* Plus large sur les écrans mobiles */
+        
+    }
+
+    .card-front img, .flip-button {
+        width: 80%; /* Assurez-vous que l'image et le bouton ne dépassent pas */
+        margin-bottom: 5px;
+    }
+}
+
+/* Ajoutez des styles supplémentaires selon vos besoins */
+
+
 /* Styles pour les articles du portfolio */
 #portfolio article {
     margin-bottom: 1rem;

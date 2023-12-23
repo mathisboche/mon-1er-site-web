@@ -90,10 +90,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Ouverture de la modale
 document.querySelectorAll('.blog-card').forEach(function(card, index) {
-    card.addEventListener('click', function() {
+    function openModal() {
         document.getElementById('modal-article' + (index + 1)).style.display = 'block';
-    });
+    }
+
+    card.addEventListener('click', openModal);
+    card.addEventListener('touchstart', openModal);
 });
+
 
 // Fermeture de la modale
 document.querySelectorAll('.close').forEach(function(closeBtn) {

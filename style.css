@@ -430,7 +430,6 @@ a[download] {
 }
 
 .close {
-    z-index: 2001;
     position: fixed; /* Position fixe dans le viewport */
     top: 40px; /* Ajustez la position en haut */
     right: 40px; /* Ajustez la position à droite */
@@ -444,6 +443,7 @@ a[download] {
     justify-content: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre portée légère */
     font-size: 24px; /* Agrandir le symbole de fermeture */
+    z-index: 3000; /* S'assurer qu'il est au-dessus des autres éléments */
 }
 
 .close:hover,

@@ -90,11 +90,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Ouverture de la modale
 document.querySelectorAll('.blog-card').forEach(function(card, index) {
-    function openModal() {
-        document.getElementById('modal-article' + (index + 1)).style.display = 'block';
-    }
-
-    card.addEventListener('click', openModal);
     let touchstartX = 0;
     let touchendX = 0;
 

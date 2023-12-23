@@ -371,6 +371,40 @@ a[download] {
     margin-top: 1rem;
 }
 
+#blog {
+    padding: 20px;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.blog-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.blog-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.blog-card h3 {
+    font-size: 18px;
+    margin: 10px;
+}
+
+.blog-card p {
+    font-size: 14px;
+    margin: 0 10px 10px;
+    color: #666;
+}
+
 /* Styles pour le formulaire de contact */
 #contact form {
     background: #f9f9f9;

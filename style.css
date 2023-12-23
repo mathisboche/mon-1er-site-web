@@ -422,7 +422,7 @@ a[download] {
     position: relative; /* Position relative pour le contenu de la modale */
     background-color: #fefefe;
     margin: 5% auto;
-    padding: 20px;
+    padding: 40px;
     padding-top: 50px; /* Ajoutez un espace en haut pour le bouton de fermeture */
     border: 1px solid #888;
     width: 90%;
@@ -432,17 +432,18 @@ a[download] {
 .close {
     z-index: 2001;
     position: fixed; /* Position fixe dans le viewport */
-    top: 10px; /* Ajustez la position en haut */
-    right: 10px; /* Ajustez la position à droite */
+    top: 40px; /* Ajustez la position en haut */
+    right: 40px; /* Ajustez la position à droite */
     background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
     backdrop-filter: blur(10px); /* Effet de flou */
     border-radius: 50%; /* Rend le fond rond */
-    width: 35px; /* Taille du bouton */
-    height: 35px; /* Taille du bouton */
+    width: 50px; /* Taille du bouton */
+    height: 50px; /* Taille du bouton */
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre portée légère */
+    font-size: 24px; /* Agrandir le symbole de fermeture */
 }
 
 .close:hover,

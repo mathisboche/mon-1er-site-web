@@ -405,6 +405,72 @@ a[download] {
     color: #666;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Arrière-plan semi-transparent */
+    backdrop-filter: blur(5px); /* Flou de l'arrière-plan */
+}
+
+.modal-content {
+    position: relative; /* Position relative pour le contenu de la modale */
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    padding-top: 50px; /* Ajoutez un espace en haut pour le bouton de fermeture */
+    border: 1px solid #888;
+    width: 90%;
+    border-radius: 15px;
+}
+
+.close {
+    z-index: 2001;
+    position: fixed; /* Position fixe dans le viewport */
+    top: 10px; /* Ajustez la position en haut */
+    right: 10px; /* Ajustez la position à droite */
+    background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+    backdrop-filter: blur(10px); /* Effet de flou */
+    border-radius: 50%; /* Rend le fond rond */
+    width: 35px; /* Taille du bouton */
+    height: 35px; /* Taille du bouton */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre portée légère */
+}
+
+.close:hover,
+.close:focus {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.blog-post h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.blog-post h3 {
+    color: #555;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.blog-post p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
 /* Styles pour le formulaire de contact */
 #contact form {
     background: #f9f9f9;

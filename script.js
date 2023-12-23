@@ -101,10 +101,6 @@ document.querySelectorAll('.blog-card').forEach(function(card, index) {
         e.stopPropagation(); // empêche la propagation de l'événement
     }
 
-    function handleTouchMove(e) {
-        e.preventDefault(); // empêche le défilement pendant le toucher
-    }
-
     function handleTouchEnd(e) {
         dist = e.changedTouches[0].pageX - startX; // calcule la distance parcourue
         elapsedTime = new Date().getTime() - startTime; // calcule le temps écoulé

@@ -88,65 +88,56 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Ouverture de la modale
 document.querySelectorAll('.blog-card').forEach(function(card, index) {
-    let startX, startY, dist, threshold = 10, // seuil pour détecter un tap
-        allowedTime = 200, // durée maximale entre touchstart et touchend
-        elapsedTime, startTime;
+    let isTouching = false;
 
-    function handleTouchStart(e) {
-        startX = e.changedTouches[0].pageX;
-        startY = e.changedTouches[0].pageY;
-        startTime = new Date().getTime(); // enregistre le temps au début du toucher
-        e.stopPropagation(); // empêche la propagation de l'événement
+    function handleTouchStart() {
+        isTouching = true; // Marque le début d'une interaction tactile
     }
 
-    function handleTouchEnd(e) {
-        dist = e.changedTouches[0].pageX - startX; // calcule la distance parcourue
-        elapsedTime = new Date().getTime() - startTime; // calcule le temps écoulé
-        if (Math.abs(dist) <= threshold && elapsedTime <= allowedTime) {
-            openModal(); // ouvre le modal si c'est un tap
-        }
-        e.stopPropagation(); // empêche la propagation de l'événement
+    function handleTouchEnd() {
+        isTouching = false; // Marque la fin d'une interaction tactile
+        openModal(); // Ouvre la modale si c'était un toucher
     }
 
     function handleClick() {
-        openModal(); // gère le clic pour les ordinateurs de bureau
+        if (!isTouching) { // Ouvre la modale uniquement si ce n'est pas la suite d'un toucher
+            openModal();
+        }
     }
 
     function openModal() {
         document.getElementById('modal-article' + (index + 1)).style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Désactive le défilement
+        document.body.style.overflow = 'hidden'; // Désactive le défilement de la page principale
     }
 
-    function closeModal() {
-        document.getElementById('modal-article' + (index + 1)).style.display = 'none';
-        document.body.style.overflow = ''; // Réactive le défilement
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+        document.body.style.overflow = ''; // Réactive le défilement de la page principale
     }
 
-    // Attachez closeModal à vos éléments de fermeture
-    document.querySelectorAll('.close').forEach(function(closeBtn) {
-        closeBtn.addEventListener('click', closeModal);
-    });
-
+    // Attache les gestionnaires d'événements
     card.addEventListener('touchstart', handleTouchStart, false);
-    card.addEventListener('touchmove', handleTouchMove, false);
     card.addEventListener('touchend', handleTouchEnd, false);
     card.addEventListener('click', handleClick, false);
-});
 
-
-
-// Fermeture de la modale
-document.querySelectorAll('.close').forEach(function(closeBtn) {
-    closeBtn.addEventListener('click', function() {
-        this.parentElement.style.display = 'none';
+    // Attache closeModal à tous les boutons de fermeture
+    document.querySelectorAll('.close').forEach(function(closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            closeModal('modal-article' + (index + 1));
+        });
     });
 });
 
-// Fermer la modale en cliquant en dehors
+// Ferme la modale en cliquant en dehors de celle-ci
 window.onclick = function(event) {
     if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
+        closeModal(event.target.id);
     }
+};
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+    document.body.style.overflow = ''; // Réactive le défilement
 }
+

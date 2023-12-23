@@ -436,8 +436,8 @@ a[download] {
     background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
     backdrop-filter: blur(10px); /* Effet de flou */
     border-radius: 50%; /* Rend le fond rond */
-    width: 50px; /* Taille du bouton */
-    height: 50px; /* Taille du bouton */
+    width: 35px; /* Taille du bouton */
+    height: 35px; /* Taille du bouton */
     display: flex;
     align-items: center;
     justify-content: center;

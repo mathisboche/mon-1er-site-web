@@ -95,7 +95,26 @@ document.querySelectorAll('.blog-card').forEach(function(card, index) {
     }
 
     card.addEventListener('click', openModal);
-    card.addEventListener('touchstart', openModal);
+    let touchstartX = 0;
+    let touchendX = 0;
+
+    function handleTouchStart(evt) {
+        touchstartX = evt.changedTouches[0].screenX;
+    }
+
+    function handleTouchEnd(evt) {
+        touchendX = evt.changedTouches[0].screenX;
+        if (Math.abs(touchstartX - touchendX) < 10) { // Seuil pour détecter un tap plutôt qu'un swipe
+            openModal();
+        }
+    }
+
+    function openModal() {
+        document.getElementById('modal-article' + (index + 1)).style.display = 'block';
+    }
+
+    card.addEventListener('touchstart', handleTouchStart);
+    card.addEventListener('touchend', handleTouchEnd);
 });
 
 

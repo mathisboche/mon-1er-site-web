@@ -87,3 +87,24 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 });
+
+// Ouverture de la modale
+document.querySelectorAll('.blog-card').forEach(function(card, index) {
+    card.addEventListener('click', function() {
+        document.getElementById('modal-article' + (index + 1)).style.display = 'block';
+    });
+});
+
+// Fermeture de la modale
+document.querySelectorAll('.close').forEach(function(closeBtn) {
+    closeBtn.addEventListener('click', function() {
+        this.parentElement.style.display = 'none';
+    });
+});
+
+// Fermer la modale en cliquant en dehors
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+    }
+}

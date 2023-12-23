@@ -90,27 +90,55 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Ouverture de la modale
 document.querySelectorAll('.blog-card').forEach(function(card, index) {
-    let touchstartX = 0;
-    let touchendX = 0;
+    let startX, startY, dist, threshold = 10, // seuil pour détecter un tap
+        allowedTime = 200, // durée maximale entre touchstart et touchend
+        elapsedTime, startTime;
 
-    function handleTouchStart(evt) {
-        touchstartX = evt.changedTouches[0].screenX;
+    function handleTouchStart(e) {
+        startX = e.changedTouches[0].pageX;
+        startY = e.changedTouches[0].pageY;
+        startTime = new Date().getTime(); // enregistre le temps au début du toucher
+        e.stopPropagation(); // empêche la propagation de l'événement
     }
 
-    function handleTouchEnd(evt) {
-        touchendX = evt.changedTouches[0].screenX;
-        if (Math.abs(touchstartX - touchendX) < 10) { // Seuil pour détecter un tap plutôt qu'un swipe
-            openModal();
+    function handleTouchMove(e) {
+        e.preventDefault(); // empêche le défilement pendant le toucher
+    }
+
+    function handleTouchEnd(e) {
+        dist = e.changedTouches[0].pageX - startX; // calcule la distance parcourue
+        elapsedTime = new Date().getTime() - startTime; // calcule le temps écoulé
+        if (Math.abs(dist) <= threshold && elapsedTime <= allowedTime) {
+            openModal(); // ouvre le modal si c'est un tap
         }
+        e.stopPropagation(); // empêche la propagation de l'événement
+    }
+
+    function handleClick() {
+        openModal(); // gère le clic pour les ordinateurs de bureau
     }
 
     function openModal() {
         document.getElementById('modal-article' + (index + 1)).style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Désactive le défilement
     }
 
-    card.addEventListener('touchstart', handleTouchStart);
-    card.addEventListener('touchend', handleTouchEnd);
+    function closeModal() {
+        document.getElementById('modal-article' + (index + 1)).style.display = 'none';
+        document.body.style.overflow = ''; // Réactive le défilement
+    }
+
+    // Attachez closeModal à vos éléments de fermeture
+    document.querySelectorAll('.close').forEach(function(closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    });
+
+    card.addEventListener('touchstart', handleTouchStart, false);
+    card.addEventListener('touchmove', handleTouchMove, false);
+    card.addEventListener('touchend', handleTouchEnd, false);
+    card.addEventListener('click', handleClick, false);
 });
+
 
 
 // Fermeture de la modale

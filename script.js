@@ -120,3 +120,29 @@ window.onclick = function(event) {
         closeModal(event.target.id);
     }
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+    const elements = document.querySelectorAll('.fade-in');
+
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.bottom >= 0
+        );
+    }
+
+    function checkVisibility() {
+        for (const element of elements) {
+            if (isElementInViewport(element)) {
+                element.classList.add('visible');
+            }
+        }
+    }
+
+    // Vérifie la visibilité des éléments au chargement de la page
+    checkVisibility();
+
+    // Ajoute un écouteur d'événements pour le défilement
+    window.addEventListener('scroll', checkVisibility);
+});

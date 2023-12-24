@@ -95,8 +95,11 @@ document.querySelectorAll('.blog-card').forEach(function(card, index) {
 });
 
 function openModal(modalId) {
-    document.getElementById(modalId).style.display = 'block';
+    var modal = document.getElementById(modalId);
+    var modalContent = modal.querySelector('.modal-content');
+    modalContent.classList.add('open');
     document.body.style.overflow = 'hidden'; // Désactive le défilement de la page principale
+    modal.style.display = 'block'; // Affiche le modal
 }
 
 function closeModal(modalId) {

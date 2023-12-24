@@ -358,6 +358,7 @@ h2 {
     background: #f2f2f2;
     padding: 1rem;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre subtile */
 }
 
 /* Styles pour le bouton de téléchargement */
@@ -419,6 +420,8 @@ a[download] {
 }
 
 .modal-content {
+    transform: translateY(100%);
+    transition: transform 0.5s ease-out;
     position: relative; /* Position relative pour le contenu de la modale */
     background-color: #fefefe;
     margin: 5% auto;
@@ -427,6 +430,10 @@ a[download] {
     border: 1px solid #888;
     width: 98%;
     border-radius: 15px;
+}
+
+.modal-content.open {
+    transform: translateY(0);
 }
 
 .close {
@@ -478,6 +485,7 @@ a[download] {
     padding: 2rem;
     margin-top: 1rem;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre subtile */
 }
 
 #contact label {
